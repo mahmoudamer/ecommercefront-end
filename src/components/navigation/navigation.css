@@ -1,0 +1,29 @@
+.nav-container {
+  width: 100%;
+  background: #363f48;
+  position: fixed;
+  z-index: 1;
+  text-align: center;
+  padding: 0px;
+}
+
+.nav-item {
+  display: inline-block;
+  width: 12%;
+  padding: 20px 10px;
+  border: 0.2px solid rgb(112, 112, 112);
+  border-top: 0.2px solid transparent;
+  border-bottom: 0.2px solid transparent;
+  margin: 0;
+  background: #363f48;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+
+  text-transform: capitalize;
+}
+
+.nav-item:hover {
+  background: #15191d;
+}

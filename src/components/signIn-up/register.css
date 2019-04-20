@@ -1,0 +1,44 @@
+.register-parent {
+  padding: 6em;
+}
+.register-container {
+  width: 30%;
+  vertical-align: middle;
+  margin: 100px auto 10px;
+  padding: 50px 0px 20px;
+  border-radius: 5px;
+  background: rgb(226, 226, 226);
+  text-align: center;
+}
+
+.register-container input {
+  margin: 0px auto 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: block;
+  width: 60%;
+  padding: 3px;
+}
+.signIn-r,
+.register-r {
+  color: white;
+  background-color: #f34b0a;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin: 5px auto;
+  padding: 3px 10px;
+  display: block;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signIn-r:hover,
+.register-r:hover {
+  background-color: #c53d07;
+}
+
+.register-btn-container {
+  margin: 60px auto 0;
+}

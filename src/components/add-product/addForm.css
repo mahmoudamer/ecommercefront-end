@@ -1,0 +1,58 @@
+.add-parent {
+  padding: 6em;
+}
+
+.addForm-container {
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.addForm-card-container {
+  background: white;
+  padding: 15px;
+  border: solid 1px #e4e3e3;
+  position: relative;
+  margin: 0px auto 30px;
+  max-width: 680px;
+  width: 100%;
+  margin: 10px 10px 10px 10px;
+  display: inline-block;
+}
+
+.addForm-card {
+  border: 1px solid transparent;
+}
+
+.addForm-card-img-top {
+  width: 100%;
+}
+
+.addForm-card-title input {
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 10px;
+  border: 0.5px solid gray;
+  float: left;
+  width: 30%;
+}
+
+.clear-float {
+  clear: both;
+}
+.addForm-btn {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  text-decoration: none;
+  margin-left: 8px;
+  background-color: #e7551b;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 13px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.addForm-btn:hover {
+  background-color: #c53d07;
+}
