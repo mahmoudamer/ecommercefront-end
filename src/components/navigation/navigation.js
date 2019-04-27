@@ -3,10 +3,7 @@ import { NavLink } from "react-router-dom";
 import './navigation.css';
 
 
-
-
 const navigation = (props) => {
-
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -16,15 +13,13 @@ const navigation = (props) => {
     window.location.replace('/login')
   }
 
-  let toggleClass = localStorage.getItem('token') ? "nav-item-first" : "nav-item";  // to be modified
-
+  let toggleClass = localStorage.getItem('token') ? "nav-item-first" : "nav-item";
 
   return (
     <>
-
       <div className="nav-container">
         <div className="nav-navigation">
-          {localStorage.getItem('token') ?                                                     // to be modified
+          {localStorage.getItem('token') ?
             <div className={toggleClass}>
               <span>
                 <span className="welcome" >welcome </span>
@@ -43,7 +38,6 @@ const navigation = (props) => {
             className="nav-item cursor">log out</span>
         </div>
       </div>
-      {/* <LogIn /> */}
 
     </>
   );

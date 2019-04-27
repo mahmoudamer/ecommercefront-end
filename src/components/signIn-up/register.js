@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import * as APIUser from '../../API/user'
-
-
+import * as APIUser from '../../API/api';
 import './register.css';
 
 
 class Register extends Component {
-
 
     state = {
         id: '',
@@ -16,9 +13,7 @@ class Register extends Component {
         email: ''
     };
 
-
     registerHandler = async (e) => {
-        // console.log(this.state);
         e.preventDefault();
         await APIUser.register(this.state).then(
             async () => {
@@ -29,30 +24,19 @@ class Register extends Component {
                 localStorage.setItem('userid', res.user._id)
                 // this.props.history.push('/products')
                 window.location.replace('/products')
-
-
             }
         )
-
-
-
-
-
-        // this.props.userAdded(this.state);
     }
     render() {
-        // console.log(register);
-        // register();
+
         // console.log(this.state, localStorage)
         // console.log(this.props)
 
         return (
             <>
                 <div className="register-parent">
-
                     <div className="register-container">
                         <form onSubmit={this.registerHandler}>
-
                             <input type="text" name="username" placeholder="user name" onChange={(e) => this.setState({ userName: e.target.value })}></input>
                             <input type="text" name="password" placeholder="password" onChange={(e) => this.setState({ password: e.target.value })}></input>
                             <input type="text" name="email" placeholder="email" onChange={(e) => this.setState({ email: e.target.value })}></input>
@@ -63,10 +47,8 @@ class Register extends Component {
                             <div>OR</div>
                             <NavLink className="signIn-r" to="/logIn">sign in</NavLink>
                         </form>
-
                     </div>
                 </div>
-
             </>
         )
     }

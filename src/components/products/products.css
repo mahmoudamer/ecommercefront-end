@@ -13,7 +13,7 @@
   border: solid 1px #e4e3e3;
   position: relative;
   margin: 0px auto 30px;
-  max-width: 29%;
+  max-width: 27%;
   width: 100%;
   margin: 10px 10px 10px 10px;
   display: inline-block;
@@ -38,8 +38,8 @@
 
 .products-card-img-top {
   width: 100%;
-  min-height: 18em;
-  max-height: 18em;
+  min-height: 17em;
+  max-height: 17em;
 }
 
 .products-card-title-price {

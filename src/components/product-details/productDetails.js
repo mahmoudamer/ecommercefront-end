@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import defaultImg from "../../assets/img/default.jpg.png";
-import * as APIUser from '../../API/product'
+import * as APIUser from '../../API/api'
 
 import './product-details.css';
 

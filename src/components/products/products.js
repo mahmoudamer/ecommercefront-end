@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Product from "./product/product";
-import * as APIUser from '../../API/user'
+import * as APIUser from '../../API/api'
 import './products.css';
 
 
@@ -13,7 +13,7 @@ class Products extends Component {
   async componentDidMount() {
 
     // const getall = async () => {
-    const x = await APIUser.getUserProducts()
+    const x = await APIUser.getAllProducts()
     const arr = [];
     for (const key in x) {
       arr.push({
@@ -42,7 +42,6 @@ class Products extends Component {
   }
 
   render() {
-    // console.log(this.state)
     let items;
     if (!localStorage.getItem('token')) {
       items = <div className='notAuth-container'><h1 className="notAuth">please sign in to get access to Products</h1></div>        // do not forget the style 
@@ -56,16 +55,9 @@ class Products extends Component {
             name={product.name}
             showDetails={() => this.showDetailsHandler(product.id)}
             price={product.price}
-            delete={() => this.deleteHandler(product.id)}
-          // view={() => {
-          //   this.props.viewProduct(product.id);
-          //   this.props.history.push("./details");
-          //   // console.log(props.history)
-          // }}
-          />
+            delete={() => this.deleteHandler(product.id)} />
         </React.Fragment>
       ));
-      // console.log(items)
     }
     return (
       <>
