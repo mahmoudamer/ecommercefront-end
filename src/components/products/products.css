@@ -1,5 +1,5 @@
 .products-parent {
-  padding: 6em 13em;
+  padding: 6em 14em;
 }
 .products-parent .products-container {
   margin: 0 auto;
@@ -13,7 +13,7 @@
   border: solid 1px #e4e3e3;
   position: relative;
   margin: 0px auto 30px;
-  max-width: 360px;
+  max-width: 29%;
   width: 100%;
   margin: 10px 10px 10px 10px;
   display: inline-block;
@@ -38,6 +38,8 @@
 
 .products-card-img-top {
   width: 100%;
+  min-height: 18em;
+  max-height: 18em;
 }
 
 .products-card-title-price {
@@ -69,4 +71,17 @@
 }
 .products-btn:hover {
   background-color: #c53d07;
+}
+
+.notAuth-container {
+  background: #333b42;
+  padding: 35px;
+  margin: 20px auto;
+  position: fixed;
+  top: 25%;
+  left: 31%;
+}
+.notAuth {
+  text-transform: capitalize;
+  color: #c53d07;
 }

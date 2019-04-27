@@ -1,5 +1,5 @@
 import React from "react";
-import productImg from '../../../assets/img/a4.jpg'
+import defaultImg from '../../../assets/img/default.jpg.png'
 
 
 const product = (props) => {
@@ -8,7 +8,7 @@ const product = (props) => {
 
             <div className="products-card-container col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div className="products-card">
-                    <img className="products-card-img-top" src={productImg} alt="Card  cap" />
+                    <img className="products-card-img-top" src={props.image ? props.image : defaultImg} alt="Card  cap" />
                     <div className="products-card-body">
 
                         <h5 className="products-card-title">
@@ -18,15 +18,12 @@ const product = (props) => {
                         </h5>
 
 
-                        <p className="products-card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's
-                            content.</p>
+                        <p className="products-card-text">{props.description ? props.description : <>no description</>}</p>
 
 
-                        <span onClick={props.view} className="products-btn card">preview</span>
+                        <span onClick={props.showDetails} className="products-btn card">preview</span>
                         {/* <span  className="products-btn card">edit</span> */}
-                        <span onClick={props.del} className="products-btn card">delete</span>
+                        <span onClick={props.delete} className="products-btn card">delete</span>
                     </div>
 
                 </div>

@@ -56,3 +56,25 @@
 .addForm-btn:hover {
   background-color: #c53d07;
 }
+
+.notAuth-container {
+  background: #333b42;
+  padding: 35px;
+  margin: 20px auto;
+  position: fixed;
+  top: 25%;
+  left: 31%;
+}
+.notAuth {
+  text-transform: capitalize;
+  color: #c53d07;
+}
+
+.addForm-card-textArea {
+  width: 98%;
+  resize: none;
+  border: 0.5px solid gray;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 8px auto 12px;
+}

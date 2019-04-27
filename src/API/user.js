@@ -11,23 +11,19 @@ module.exports = {
       .then(res => res.data)
   },
   getUserProducts() {
-    return axios.get(`/users/products`, {
+    return axios.get(`/products`, {
       headers: { Authorization: localStorage.getItem('token') }
     }).then(res => res.data);
   },
   addProduct(product) {
-    return axios.post(`/users/add`, product, {
+    return axios.post(`/products`, product, {
       headers: { Authorization: localStorage.getItem('token') }
     }).then(res => res.data);
   },
   removeProduct(productID) {
-    return axios.delete(`/users/products/${productID}`, {
-      headers: { Authorization: localStorage.getItem('token') }
-    }).then(res => res.data);
-  },
-  editProduct(productID, updatedProduct) {
-    return axios.patch(`/users/products/${productID}`, updatedProduct, {
+    return axios.delete(`products/${productID}`, {
       headers: { Authorization: localStorage.getItem('token') }
     }).then(res => res.data);
   }
+
 };

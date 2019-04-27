@@ -11,7 +11,7 @@ import Register from "./../components/signIn-up/register";
 const routes = (
   <Switch>
     <Route exact path="/products" component={Products} />
-    <Route exact path="/details" component={ProductDetails} />
+    <Route exact path="/products/:id" component={ProductDetails} />
     <Route exact path="/add" component={AddForm} />
     <Route exact path="/logIn" component={LogIn} />
     <Route exact path="/register" component={Register} />

@@ -1,59 +1,84 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 import Product from "./product/product";
-// import { REMOVE, SHOW_DETAILS, CHANGE_PAGE } from "../../store/actions/actions";
-import * as actionTypes from '../../store/actions/actions';
+import * as APIUser from '../../API/user'
 import './products.css';
 
 
-const Products = (props) => {
+class Products extends Component {
 
-  let items;
-  items = props.products.map(product => (
-    <React.Fragment key={product.id}>
-      <Product
-        name={product.name}
-        price={product.price}
-        del={() => props.removeProduct(product.id)}
-        view={() => {
-          props.viewProduct(product.id);
-          props.history.push("./details");
-          // console.log(props.history)
-        }}
-      />
-    </React.Fragment>
-  ));
-  // console.log(items)
-  return (
-    <>
+  state = {
+    products: []
+  }
 
-      <div className="products-parent">
+  async componentDidMount() {
 
-        <div className="products-container">
-          {items}
-          <div className="clear-float"></div>
+    // const getall = async () => {
+    const x = await APIUser.getUserProducts()
+    const arr = [];
+    for (const key in x) {
+      arr.push({
+        name: x[key].name,
+        price: x[key].price,
+        id: x[key]._id,
+        image: x[key].image,
+        description: x[key].description
+      })
+    }
+    this.setState({ products: arr })
+
+    // }
+    // getall();
+  }
+  showDetailsHandler = (id) => {
+    this.props.history.push(`/products/${id}`);
+  };
+
+  deleteHandler = (id) => {
+    APIUser.removeProduct(id);
+    window.location.reload()
+    // const index = this.state.products.findIndex(p => p.id === id)
+    // console.log(index)
+    // this.state.products.splice(index, 1)
+  }
+
+  render() {
+    // console.log(this.state)
+    let items;
+    if (!localStorage.getItem('token')) {
+      items = <div className='notAuth-container'><h1 className="notAuth">please sign in to get access to Products</h1></div>        // do not forget the style 
+    } else {
+
+      items = this.state.products.map(product => (
+        <React.Fragment key={product.id}>
+          <Product
+            description={product.description}
+            image={product.image}
+            name={product.name}
+            showDetails={() => this.showDetailsHandler(product.id)}
+            price={product.price}
+            delete={() => this.deleteHandler(product.id)}
+          // view={() => {
+          //   this.props.viewProduct(product.id);
+          //   this.props.history.push("./details");
+          //   // console.log(props.history)
+          // }}
+          />
+        </React.Fragment>
+      ));
+      // console.log(items)
+    }
+    return (
+      <>
+        <div className="products-parent">
+          <div className="products-container">
+            {items}
+            <div className="clear-float"></div>
+          </div>
         </div>
-      </div>
-    </>
-  )
-}
-
-const mapStateToProps = state => {
-  return {
-    products: state.products,
-
+      </>
+    )
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    removeProduct: id => dispatch({ type: actionTypes.REMOVE, payload: id }),
-    viewProduct: id => dispatch({ type: actionTypes.SHOW_DETAILS, payload: id }),
 
-
-  };
-};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Products);
+export default Products

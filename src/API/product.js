@@ -7,7 +7,12 @@ module.exports = {
             .then(res => res.data)
     },
     getProductByID(productID) {
-        return axios.get(`/products/${productID}`)
+
+        return axios.get(`/products/${productID}`, {
+            headers: { Authorization: localStorage.getItem('token') }
+        })
             .then(res => res.data);
-    }
+    },
+
+
 };

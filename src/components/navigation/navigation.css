@@ -20,10 +20,43 @@
   color: white;
   font-size: 16px;
   text-decoration: none;
-
   text-transform: capitalize;
 }
 
 .nav-item:hover {
   background: #15191d;
+}
+.nav-item:active {
+  background: #5f7081;
+}
+
+.nav-item-first {
+  display: inline-block;
+  width: 13%;
+  padding: 20px 10px;
+  margin: 0;
+  /* background: #404a53; */
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: default;
+  text-transform: capitalize;
+}
+
+.welcome {
+  color: rgb(37, 188, 226);
+  font-size: 18px;
+
+  /* font-weight: 700; */
+}
+.user {
+  color: #f34b0a;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.cursor {
+  cursor: pointer;
 }

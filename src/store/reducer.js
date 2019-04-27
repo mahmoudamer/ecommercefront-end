@@ -1,47 +1,7 @@
 import * as actionTypes from "./actions/actions.js";
-
+// import * as APIUser from '../API/user'
 const initialState = {
-  users: [
-    {
-      id: '',
-      name: '',
-      email: '',
-      token: ''
-    }
-
-  ],
   products: [
-    {
-      id: 1,
-      name: "a",
-      price: 555,
-
-    },
-    {
-      id: 2,
-      name: "a ",
-      price: 500,
-
-    },
-    {
-      id: 3,
-      name: "a",
-      price: 405,
-
-    },
-
-    {
-      id: 4,
-      name: "a",
-      price: 235,
-
-    },
-    {
-      id: 5,
-      name: "a",
-      price: 123,
-
-    },
   ]
 };
 
@@ -65,7 +25,41 @@ const reducer = (state = initialState, action) => {
         selectedProduct: product
       };
 
-    case actionTypes.SAVE_REGESTIRATION:
+
+    // // get all products
+    // case actionTypes.GET_ALL:
+
+    //   // async function getAllProducts() {
+    //   //   const res = await APIUser.getUserProducts();
+    //   //   console.log(...res)
+    //   //   return res;
+    //   // }
+
+    //   const arr = [];
+    //   // const allProducts = getAllProducts();
+    //   let allProducts = [];
+    //   let x = APIUser.getUserProducts();
+    //   console.log(APIUser.getUserProducts)
+    //   allProducts = x;
+    //   console.log(allProducts)
+    //   for (const key in allProducts) {
+    //     arr.push({
+    //       name: allProducts[key].name,
+    //       price: allProducts[key].price,
+    //       id: allProducts[key]._id
+    //     })
+    //   }
+    //   // console.log(...getAllProducts());
+    //   // getAllProducts();
+    //   return {
+    //     ...state,
+    //     products: arr
+
+    //   }
+
+
+    // /////////////  log in 
+    case actionTypes.LOGIN:
       const newUser = {
         id: action.userData.id,
         name: action.userData.name,

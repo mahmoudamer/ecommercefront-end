@@ -8,19 +8,23 @@ import './logIn.css';
 class LogIn extends Component {
 
     state = {
-        id: '',
-        name: '',
+        userName: '',
         password: '',
-        email: ''
     };
 
     loginHandler = async (e) => {
         e.preventDefault();
-        const { username: { value: userName }, password: { value: password } } = e.target.elements;
-        console.log(userName, password);
-        const res = await login({ userName, password });
+
+
+        // const { username: { value: userName }, password: { value: password } } = e.target.elements;
+        // console.log(userName, password);
+        const res = await login(this.state);
+        console.log(res)
         localStorage.setItem('token', res.token)
-        console.log(res);
+        localStorage.setItem('userid', res.user._id)
+        localStorage.setItem('userName', res.user.userName)
+        console.log(localStorage)
+        window.location.replace('/products')
     }
     // console.log("DETAILS", props)
     render() {
@@ -32,8 +36,14 @@ class LogIn extends Component {
 
                     <div className="logIn-container">
                         <form onSubmit={this.loginHandler}>
-                            <input name="username" type="text" placeholder="user name"></input>
-                            <input name="password" type="text" placeholder="password"></input>
+                            <input name="username"
+                                type="text"
+                                placeholder="user name"
+                                onChange={(e) => this.setState({ userName: e.target.value })}></input>
+                            <input name="password"
+                                type="text"
+                                placeholder="password"
+                                onChange={(e) => this.setState({ password: e.target.value })}></input>
                             <div className="logIn-btn-container">
                                 <button
                                     // onClick={() => this.props.userAdded(this.state.name, this.state.id, this.state.email)}
